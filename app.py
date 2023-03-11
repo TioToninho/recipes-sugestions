@@ -1,4 +1,3 @@
-import logging
 from flask import Flask, render_template, request
 import requests
 import random
@@ -26,7 +25,6 @@ def recipes():
         recipes = response.json()
         if len(recipes) > 0:
             recipe = random.choice(recipes)
-            print(recipe)
             return render_template('recipes.html', recipe=recipe)
         else:
             return render_template('no-recipes.html')
